@@ -1,14 +1,30 @@
-const { insertQuery, selectQuery } = require('../config/configDB');
+const { insertQuery, selectQuery } = require("../config/configDB");
 
-const getRestaurants = async() => {
-    // TODO: Implement method
-};
+async function addRestaurant(restaurant) {
+    const { name, category, address, active } = restaurant;
+    const query = `
+        INSERT INTO Restaurants (name, category, address, active)
+        VALUES ('${name}', '${category}', '${address}', ${active ? 1 : 0});
+    `;
+    try {
+        const restaurantId = await insertQuery(query);
+        return { success: true, restaurantId };
+    } catch (error) {
+        return { success: false, error };
+    }
+}
 
-const addRestaurant = async(restaurant) => {
-    // TODO: Implement method
-};
+async function getRestaurants() {
+    const query = "SELECT * FROM Restaurants WHERE active = 1;";
+    try {
+        const restaurants = await selectQuery(query);
+        return { success: true, restaurants };
+    } catch (error) {
+        return { success: false, error };
+    }
+}
 
 module.exports = {
     getRestaurants,
-    addRestaurant
+    addRestaurant,
 };
