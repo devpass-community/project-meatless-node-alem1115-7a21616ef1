@@ -10,7 +10,7 @@ const getProductsEndpoint = async (req, res) => {
 };
 
 const addProductEndpoint = async (req, res) => {
-    const { id, description, full_description, category, price, restaurant_id, active } = req.body;
+    const { description, full_description, category, price, restaurant_id, active } = req.body;
     const { success, productId, error } = await addProduct(id, description, full_description, category, price, restaurant_id, active);
     if (success) {
         res.status(200).json(productId);
