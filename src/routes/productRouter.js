@@ -3,7 +3,7 @@ const { addProductEndpoint, getProductsEndpoint } = require("../controllers/prod
 
 const productRouter = Router();
 
-productRouter.get("/restaurants", getProductsEndpoint);
-productRouter.post("/restaurants", addProductEndpoint);
+productRouter.get("/products", getProductsEndpoint);
+productRouter.post("/products", addProductEndpoint);
 
 module.exports = { productRouter };
