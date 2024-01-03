@@ -1,8 +1,9 @@
-const { Router } = require('express');
-const { addShipmentEndpoint, getShipmentsEndpoint } = require('../controllers/shipmentController');
+const { Router } = require("express");
+const { addShipmentEndpoint, getShipmentsEndpoint } = require("../controllers/shipmentController");
 
 const shipmentRouter = Router();
 
-//TODO: Add shipment endpoints
+shipmentRouter.get("/shipments", getShipmentsEndpoint);
+shipmentRouter.post("/shipments", addShipmentEndpoint);
 
 module.exports = { shipmentRouter };
