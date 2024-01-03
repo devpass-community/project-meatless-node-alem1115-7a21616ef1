@@ -15,7 +15,7 @@ const getUsers = async () => {
 
 const addUser = async (user) => {
     const { name } = user;
-    const query = `INSERT INTO Users (name) VALUES ('${distance_km}, ${name});`;
+    const query = `INSERT INTO Users (name) VALUES ('${name});`;
     try {
         let id = await insertQuery(query);
         return { success: true, id };
