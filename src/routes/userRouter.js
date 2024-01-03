@@ -1,8 +1,9 @@
-const { Router } = require('express');
-const { addUserEndpoint, getUsersEndpoint } = require('../controllers/userController');
+const { Router } = require("express");
+const { addUserEndpoint, getUsersEndpoint } = require("../controllers/userController");
 
 const userRouter = Router();
 
-//TODO: Add User endpoints
+shipmentRouter.get("/shipments", getUsersEndpoint);
+shipmentRouter.post("/shipments", addUserEndpoint);
 
 module.exports = { userRouter };
