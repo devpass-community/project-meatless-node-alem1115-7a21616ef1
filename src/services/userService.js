@@ -1,14 +1,32 @@
-const { insertQuery, selectQuery } = require('../config/configDB');
+const { insertQuery, selectQuery } = require("../config/configDB");
 
-const getUsers = async() => {
-    // TODO: Implement method
+const getUsers = async () => {
+    const query = "SELECT * FROM Users";
+    try {
+        const user = await selectQuery(query);
+        return { success: true, result: user };
+    } catch {
+        return {
+            success: false,
+            error,
+        };
+    }
 };
 
-const addUser = async(user) => {
-    // TODO: Implement method
+const addUser = async (user) => {
+    const { name } = user;
+    const query = `INSERT INTO Users (name) VALUES ('${name});`;
+    try {
+        let id = await insertQuery(query);
+        return { success: true, id };
+    } catch {
+        {
+            success: false, error;
+        }
+    }
 };
 
 module.exports = {
     getUsers,
-    addUser
+    addUser,
 };
