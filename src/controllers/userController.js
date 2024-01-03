@@ -11,7 +11,7 @@ const getUsersEndpoint = async (req, res) => {
 
 const addUserEndpoint = async (req, res) => {
     const { name } = req.body;
-    const { success, id, error } = await addShipment(name);
+    const { success, id, error } = await addUser(name);
     if (success) {
         res.status(201).json(id);
     } else {
