@@ -13,7 +13,7 @@ const addProductEndpoint = async (req, res) => {
     const { description, full_description, category, price, restaurant_id, active } = req.body;
     const { success, productId, error } = await addProduct(description, full_description, category, price, restaurant_id, active);
     if (success) {
-        res.status(200).json(productId);
+        res.status(201).json(productId);
     } else {
         res.status(500).json({ error });
     }
