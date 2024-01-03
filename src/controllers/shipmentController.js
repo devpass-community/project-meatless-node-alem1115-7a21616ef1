@@ -11,7 +11,7 @@ const getShipmentsEndpoint = async (req, res) => {
 
 const addShipmentEndpoint = async (req, res) => {
     const { distance_km, price } = req.body;
-    const { success, id, error } = await addProduct(distance_km, price);
+    const { success, id, error } = await addShipment(distance_km, price);
     if (success) {
         res.status(201).json(id);
     } else {
